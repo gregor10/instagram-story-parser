@@ -2,13 +2,13 @@ import signale from 'signale';
 
 import { apiClient } from './index';
 import { decrypt } from '../helpers/crt';
-import { downloadImage, uploadFile } from 'helpers/s3';
+import { downloadImage, uploadFile } from '../helpers/s3';
 
 import Stalker from '../db/models/Stalker';
-import Stalkee from 'db/models/Stalkee';
-import Story, { IStory } from 'db/models/Story';
+import Stalkee from '../db/models/Stalkee';
+import Story, { IStory } from '../db/models/Story';
 
-enum IgMediaType {image = 1, video = 2};
+enum IgMediaType { image = 1, video = 2 };
 
 export const logIn = async () => {
   const stalker = await Stalker.findOne({ email: process.env.DEFAULT_STALKER_EMAIL });
